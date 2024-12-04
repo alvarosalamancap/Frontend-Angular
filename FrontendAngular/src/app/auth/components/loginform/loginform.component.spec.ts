@@ -1,18 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms'; // Si usas formularios reactivos
+import { LoginComponent } from './loginform.component'; // Importación correcta del componente
 
-import { LoginformComponent } from './loginform.component';
-
-describe('LoginformComponent', () => {
-  let component: LoginformComponent;
-  let fixture: ComponentFixture<LoginformComponent>;
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginformComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(LoginformComponent);
+      declarations: [LoginComponent], // Declaración del componente
+      imports: [ReactiveFormsModule], // Si es necesario para formularios reactivos
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
