@@ -1,1 +1,65 @@
-<p>loginform works!</p>
+<!-- login.component.html -->
+<div class="bg-[#618985] flex items-center justify-center h-screen">
+    <div class="bg-[#96bbbb] shadow-lg rounded-lg p-8 w-96">
+      <!-- Logo -->
+      <div class="flex justify-center mb-4">
+        <img src="https://i.ibb.co/q0SVKMQ/bibliotech-logo1.png" alt="Bibliotech Logo" class="w-24 h-24" />
+      </div>
+  
+      <!-- Formulario de Iniciar Sesión -->
+      <h2 class="text-3xl font-bold text-center mb-6">Iniciar Sesión</h2>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Campo de Email -->
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700">Correo electrónico</label>
+          <input
+            type="email"
+            formControlName="email"
+            id="email"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+            placeholder="nombre@dominio.com"
+          />
+          <div
+            *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+            class="bg-red-500 text-white p-2 rounded mt-2"
+          >
+            <span class="text-sm">Por favor, introduce un correo válido.</span>
+          </div>
+        </div>
+  
+        <!-- Campo de Contraseña -->
+        <div class="mb-6">
+          <label for="password" class="block text-gray-700">Contraseña</label>
+          <input
+            type="password"
+            formControlName="password"
+            id="password"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+            placeholder="********"
+          />
+          <div
+            *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+            class="bg-red-500 text-white p-2 rounded mt-2"
+          >
+            <span class="text-sm">La contraseña es obligatoria.</span>
+          </div>
+        </div>
+  
+        <!-- Botones -->
+        <div class="flex justify-between items-center">
+          <button
+            type="submit"
+            class="bg-[#c19875] text-white px-4 py-2 rounded-md hover:bg-[#a67c55]"
+            [disabled]="loginForm.invalid"
+          >
+            Acceder
+          </button>
+          <a routerLink="/register" class="bg-white text-[#618985] px-4 py-2 rounded-md hover:bg-gray-200">
+            Registrarse
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
