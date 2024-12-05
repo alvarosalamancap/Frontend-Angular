@@ -1,1 +1,77 @@
-<p>rentbookmovieform works!</p>
+<div class="container">
+    <h1>Arriendo de Libros y Películas</h1>
+  
+    <!-- Formulario de búsqueda -->
+    <form (submit)="onSearch()">
+      <div class="form-group">
+        <label for="searchQuery">Buscar por título, autor/director o ISBN:</label>
+        <input
+          type="text"
+          id="searchQuery"
+          [(ngModel)]="searchQuery"
+          name="searchQuery"
+          placeholder="Ingrese término de búsqueda"
+          required
+        />
+      </div>
+      <button type="submit">Buscar</button>
+    </form>
+  
+    <!-- Resultados de búsqueda -->
+    <h2>Resultados de la Búsqueda</h2>
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor/Director</th>
+          <th>Disponibilidad</th>
+          <th>Fecha de Publicación/Estreno</th>
+          <th>Reseñas</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of searchResults">
+          <td>{{ item.title }}</td>
+          <td>{{ item.author }}</td>
+          <td>{{ item.availability }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.reviews }}</td>
+          <td>
+            <button (click)="selectItem(item)">Seleccionar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Selección de días para arriendo -->
+    <form (submit)="confirmRental()" style="margin-top: 20px;">
+      <h2>Solicitar Arriendo</h2>
+      <div class="form-group">
+        <label for="selectedItem">Seleccione un libro o película:</label>
+        <select id="selectedItem" [(ngModel)]="selectedItem" name="selectedItem" required>
+          <option value="" disabled selected>Seleccione de los resultados...</option>
+          <option *ngFor="let item of searchResults" [value]="item">{{ item.title }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rentalDays">Número de días de arriendo:</label>
+        <input
+          type="number"
+          id="rentalDays"
+          [(ngModel)]="rentalDays"
+          name="rentalDays"
+          (input)="calculateTotalCost()"
+          min="1"
+          placeholder="Ingrese número de días"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="totalCost">Costo total estimado:</label>
+        <input type="text" id="totalCost" [value]="totalCost" readonly />
+      </div>
+      <button type="submit">Confirmar Solicitud</button>
+    </form>
+  </div>
+  
