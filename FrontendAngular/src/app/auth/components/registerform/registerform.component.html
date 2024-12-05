@@ -1,1 +1,90 @@
-<p>registerform works!</p>
+<div class="max-w-sm mx-auto mt-10">
+    <div class="box">
+        <div class="flex justify-center mb-4">
+            <img src="https://i.ibb.co/q0SVKMQ/bibliotech-logo1.png" alt="Bibliotech Logo" class="w-24 h-24">
+        </div>
+        <h2 class="text-3xl font-bold text-center mb-6">Registrarse</h2>
+
+        <!-- Formulario de Registro -->
+        <form id="registerForm">
+            <!-- Campo RUT -->
+            <div class="mb-5">
+                <label for="rut" class="block mb-2 text-sm font-medium text-gray-900">RUT:</label>
+                <input type="text" id="rut" name="rut" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    required placeholder="Ingrese su RUT">
+            </div>
+
+            <!-- Campo Nombre -->
+            <div class="mb-5">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nombre:</label>
+                <input type="text" id="name" name="name" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    required placeholder="Ingrese su nombre">
+            </div>
+
+            <!-- Campo Apellidos -->
+            <div class="mb-5">
+                <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900">Apellidos:</label>
+                <input type="text" id="lastname" name="lastname" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    required placeholder="Ingrese sus apellidos">
+            </div>
+
+            <!-- Campo Email -->
+            <div class="mb-5">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    required placeholder="Ingrese su correo">
+            </div>
+
+            <!-- Campo Teléfono -->
+            <div class="mb-5">
+                <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Teléfono:</label>
+                <input type="text" id="phone" name="phone" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-none focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                    required placeholder="Ingrese un número telefónico (+56)">
+            </div>
+
+            <!-- Botones -->
+            <div class="flex flex-col space-y-3">
+                <button type="button" class="btn text-white" 
+                    style="background-color: #c19875;" 
+                    (mouseover)="this.style.backgroundColor='#a67c55'" 
+                    (mouseout)="this.style.backgroundColor='#c19875'" 
+                    (click)="openModal()">
+                    Registrar
+                </button>
+
+                <a routerLink="/" class="btn" 
+                    style="background-color: #618985; color: white;" 
+                    (mouseover)="this.style.backgroundColor='#4f6b6b'" 
+                    (mouseout)="this.style.backgroundColor='#618985'">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div *ngIf="showModal" class="modal-bg">
+    <div class="modal">
+        <p>¿Estás seguro de que deseas registrarte?</p>
+        <div class="modal-buttons">
+            <button class="confirm-btn" (click)="confirmRegistration()">Confirmar</button>
+            <button class="cancel-btn" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de éxito de registro -->
+<div *ngIf="showSuccessModal" class="modal-bg">
+    <div class="modal">
+        <p>Has sido registrado exitosamente</p>
+        <div class="modal-buttons">
+            <button class="confirm-btn" (click)="closeSuccessModal()">Aceptar</button>
+        </div>
+    </div>
+</div>
