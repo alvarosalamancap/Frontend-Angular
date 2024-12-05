@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class RegisterFormComponent {
   showModal = false;
   showSuccessModal = false;
+  buttonColor = '#c19875'; // Color inicial del botón "Registrar"
+  hoverBackButton = false; // Variable para manejar el hover en el botón "Volver"
 
   openModal() {
     this.showModal = true;

@@ -49,18 +49,19 @@
 
             <!-- Botones -->
             <div class="flex flex-col space-y-3">
-                <button type="button" class="btn text-white" 
-                    style="background-color: #c19875;" 
-                    (mouseover)="this.style.backgroundColor='#a67c55'" 
-                    (mouseout)="this.style.backgroundColor='#c19875'" 
+                <button type="button" class="btn text-white"
+                    [ngStyle]="{'background-color': buttonColor}" 
+                    (mouseover)="buttonColor = '#a67c55'" 
+                    (mouseout)="buttonColor = '#c19875'" 
                     (click)="openModal()">
                     Registrar
                 </button>
 
-                <a routerLink="/" class="btn" 
-                    style="background-color: #618985; color: white;" 
-                    (mouseover)="this.style.backgroundColor='#4f6b6b'" 
-                    (mouseout)="this.style.backgroundColor='#618985'">
+                <a routerLink="/" class="btn text-white"
+                    [ngStyle]="{'background-color': '#618985'}"
+                    (mouseover)="hoverBackButton = true" 
+                    (mouseout)="hoverBackButton = false" 
+                    [ngClass]="{'hover:bg-gray-700': hoverBackButton}">
                     Volver
                 </a>
             </div>
