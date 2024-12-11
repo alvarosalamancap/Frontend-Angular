@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://aqui va el backend.test/api'; // AQUI SE PONE LA URL APIIIII
+  private apiUrl = 'http://127.0.0.1:3306/api'; // AQUI SE PONE LA URL APIIIII DEL LARAVEL
 
   constructor(private http: HttpClient) {}
 
