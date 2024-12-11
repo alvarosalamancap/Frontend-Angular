@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './client-management.component.css'
 })
 export class ClientManagementComponent {
-
+ // Agrega cualquier lógica para manejar acciones aquí
+ handleAction(action: string, cliente: string): void {
+  console.log(`${action} cliente: ${cliente}`);
+  
+}
 }

@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RentBookMovieFormComponent } from './client/components/rentbookmovieform/rentbookmovieform.component';
+//import { ClientManagementComponent } from './client-management/client-management.component';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { RentBookMovieFormComponent } from './client/components/rentbookmoviefor
   imports: [
     BrowserModule,
     HttpClientModule // Asegúrate de que esté aquí
+    RouterModule // Asegúrate de incluirlo aquí
   ],
   providers: [],
   bootstrap: [AppComponent]
